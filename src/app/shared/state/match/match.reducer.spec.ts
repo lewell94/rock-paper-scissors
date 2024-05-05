@@ -29,4 +29,32 @@ describe('matchReducer', () => {
             playerTwoName: 'Bob',
         });
     });
+
+    it('should increment the player one score', () => {
+        const resultOne = matchReducer(initialState, matchActions.incrementPlayerOneScore());
+
+        expect(resultOne.playerOneScore).toEqual(1);
+
+        const resultTwo = matchReducer(resultOne, matchActions.incrementPlayerOneScore());
+
+        expect(resultTwo.playerOneScore).toEqual(2);
+
+        const resultThree = matchReducer(resultTwo, matchActions.incrementPlayerOneScore());
+
+        expect(resultThree.playerOneScore).toEqual(3);
+    });
+
+    it('should increment the player two score', () => {
+        const resultOne = matchReducer(initialState, matchActions.incrementPlayerTwoScore());
+
+        expect(resultOne.playerTwoScore).toEqual(1);
+
+        const resultTwo = matchReducer(resultOne, matchActions.incrementPlayerTwoScore());
+
+        expect(resultTwo.playerTwoScore).toEqual(2);
+
+        const resultThree = matchReducer(resultTwo, matchActions.incrementPlayerTwoScore());
+
+        expect(resultThree.playerTwoScore).toEqual(3);
+    });
 });
