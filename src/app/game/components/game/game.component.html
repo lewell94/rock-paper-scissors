@@ -1,0 +1,8 @@
+<app-header [hasScoreBar]="true"></app-header>
+<app-score
+    [playerOneName]="playerOneName$ | async"
+    [playerTwoName]="playerTwoName$ | async"
+    [playerOneScore]="playerOneScore$ | async"
+    [playerTwoScore]="playerTwoScore$ | async"
+></app-score>
+<router-outlet></router-outlet>

@@ -7,10 +7,10 @@ import { Component, Input } from "@angular/core";
 })
 export class ScoreComponent {
 
-    @Input() playerOneName: string;
-    @Input() playerTwoName: string;
-    @Input() playerOneScore: number;
-    @Input() playerTwoScore: number;
+    @Input() playerOneName: string | null;
+    @Input() playerTwoName: string | null;
+    @Input() playerOneScore: number | null;
+    @Input() playerTwoScore: number | null;
 
     constructor() {
         this.playerOneName = '';

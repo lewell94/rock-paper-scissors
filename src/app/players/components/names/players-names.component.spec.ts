@@ -10,11 +10,17 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule } from "@angular/forms";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+import { Router } from "@angular/router";
 
 describe('PlayersNamesComponent', () => {
     let component: PlayersNamesComponent;
     let fixture: ComponentFixture<PlayersNamesComponent>;
     let store: MockStore;
+    let router: Partial<Router>;
+
+    const mockRouter  = {
+        navigate: jasmine.createSpy()
+    };
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -29,6 +35,7 @@ describe('PlayersNamesComponent', () => {
                         },
                     ]
                 }),
+                { provide: Router, useValue: mockRouter },
             ]
         }).compileComponents();
     });
@@ -37,6 +44,7 @@ describe('PlayersNamesComponent', () => {
         fixture = TestBed.createComponent(PlayersNamesComponent);
         component = fixture.componentInstance;
         store = TestBed.inject(MockStore);
+        router = TestBed.inject(Router);
 
         spyOn(store, 'dispatch');
 
@@ -47,7 +55,7 @@ describe('PlayersNamesComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should dispatch player one name when submitted', () => {
+    it('should dispatch player one name and naviagte to game page when submitted', () => {
         const input = fixture.debugElement.query(By.css('.names__input--one')).nativeElement;
 
         input.value = 'Adam';
@@ -61,9 +69,10 @@ describe('PlayersNamesComponent', () => {
         expect(store.dispatch).toHaveBeenCalledWith(matchActions.setPlayerOneName({
             playerOneName: 'Adam'
         }));
+        expect(router.navigate).toHaveBeenCalledWith(['/game']);
     });
 
-    it('should dispatch two player game and naviagte to names when the 2 player game btn is clicked', () => {
+    it('should dispatch both names and naviagte to game page when submitted', () => {
         store.overrideSelector(matchSelectors.getNumberOfPlayers, NumberOfPlayers.TWO);
         store.refreshState();
         fixture.detectChanges();
@@ -87,5 +96,6 @@ describe('PlayersNamesComponent', () => {
         expect(store.dispatch).toHaveBeenCalledWith(matchActions.setPlayerTwoName({
             playerTwoName: 'Bob'
         }));
+        expect(router.navigate).toHaveBeenCalledWith(['/game']);
     });
 });

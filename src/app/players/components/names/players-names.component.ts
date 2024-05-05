@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { NumberOfPlayers } from "../../../shared/models/number-of-players.enum";
 import { matchSelectors } from "../../../shared/state/match/match.selectors";
 import { matchActions } from "../../../shared/state/match/match.actions";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-players-names',
@@ -20,7 +21,7 @@ export class PlayersNamesComponent {
     playerOneName: string;
     playerTwoName: string;
 
-    constructor(private store: Store<MatchState>) {
+    constructor(private store: Store<MatchState>, private router: Router) {
         this.numberOfPlayers$ = this.store.select(matchSelectors.getNumberOfPlayers);
         this.playerOneName = '';
         this.playerTwoName = '';
@@ -32,5 +33,7 @@ export class PlayersNamesComponent {
         if (this.playerTwoName) {
             this.store.dispatch(matchActions.setPlayerTwoName({ playerTwoName: this.playerTwoName }));
         }
+
+        this.router.navigate(['/game']);
     }
 }
