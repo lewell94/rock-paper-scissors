@@ -32,7 +32,7 @@ export class PlayerOneComponent {
                 this.store.dispatch(roundActions.setPlayerTwoChoice({
                     playerTwoChoice: this.cpu.getRandomChoice()
                 }));
-                this.router.navigate(['/result']);
+                this.router.navigate(['/game/result']);
             } else {
                 this.router.navigate(['/game/player-two']);
             }

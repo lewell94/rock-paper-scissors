@@ -16,4 +16,5 @@ export const roundReducer = createReducer(
     initialState,
     on(roundActions.setPlayerOneChoice, (state, { playerOneChoice }) => ({ ...state, playerOneChoice })),
     on(roundActions.setPlayerTwoChoice, (state, { playerTwoChoice }) => ({ ...state, playerTwoChoice })),
+    on(roundActions.clear, () => initialState),
 );

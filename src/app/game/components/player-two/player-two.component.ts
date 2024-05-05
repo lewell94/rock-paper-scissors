@@ -21,6 +21,6 @@ export class PlayerTwoComponent {
 
     saveChoice(playerTwoChoice: Choice) {
         this.store.dispatch(roundActions.setPlayerTwoChoice({ playerTwoChoice }));
-        this.router.navigate(['/result']);
+        this.router.navigate(['/game/result']);
     }
 }

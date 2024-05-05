@@ -8,6 +8,7 @@ import { ChoiceComponent } from "./components/choice/choice.component";
 import { PlayerOneComponent } from "./components/player-one/player-one.component";
 import { PlayerTwoComponent } from "./components/player-two/player-two.component";
 import { MatButtonModule } from "@angular/material/button";
+import { ResultComponent } from "./components/result/result.component";
 
 @NgModule({
     imports: [
@@ -21,6 +22,7 @@ import { MatButtonModule } from "@angular/material/button";
         ChoiceComponent,
         PlayerOneComponent,
         PlayerTwoComponent,
+        ResultComponent
     ],
 })
 export class GameModule {}

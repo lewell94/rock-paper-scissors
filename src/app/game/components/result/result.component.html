@@ -1,0 +1,11 @@
+<div class="result">
+    <h3 *ngIf="!winner">Draw!</h3>
+    <h3 *ngIf="winner === 1">{{ playerOneName$ | async }} Wins!</h3>
+    <h3 *ngIf="winner === 2">{{ playerTwoName$ | async }} Wins!</h3>
+    <button
+        class="result__button"
+        (click)="nextRound()"
+        mat-raised-button
+        color="accent"
+    >Next Round</button>
+</div>
