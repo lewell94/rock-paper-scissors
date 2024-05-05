@@ -1,0 +1,19 @@
+<div class="players">
+    <div class="players__button">
+        <button
+            class="players__button--one"
+            (click)="startGame(NumberOfPlayers.ONE)"
+            mat-raised-button
+            color="accent"
+        >1 Player (vs CPU)</button>
+    </div>
+    
+    <div class="players__button">
+        <button
+            class="players__button--two"
+            (click)="startGame(NumberOfPlayers.TWO)"
+            mat-raised-button
+            color="accent"
+        >2 Players</button>
+    </div>
+</div>

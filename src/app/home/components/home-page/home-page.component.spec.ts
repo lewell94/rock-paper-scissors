@@ -40,6 +40,6 @@ describe('HomePageComponent', () => {
 
         btn.click();
 
-        expect(router.navigate).toHaveBeenCalledWith(['/players']);
+        expect(router.navigate).toHaveBeenCalledWith(['/players/select']);
     });
 });

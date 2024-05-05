@@ -11,6 +11,6 @@ export class HomePageComponent {
     constructor(private router: Router) {}
 
     startNewGame() {
-        this.router.navigate(['/players']);
+        this.router.navigate(['/players/select']);
     }
 }
