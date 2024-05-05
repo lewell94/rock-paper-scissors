@@ -34,6 +34,6 @@ export class PlayersNamesComponent {
             this.store.dispatch(matchActions.setPlayerTwoName({ playerTwoName: this.playerTwoName }));
         }
 
-        this.router.navigate(['/game']);
+        this.router.navigate(['/game/player-one']);
     }
 }

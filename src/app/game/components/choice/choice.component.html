@@ -1,0 +1,29 @@
+<div class="choice">
+    <h3>{{ name }}'s turn to play:</h3>
+    <div class="choice__button">
+        <button
+            class="choice__button--rock"
+            (click)="makeChoice(Choice.ROCK)"
+            mat-raised-button
+            color="accent"
+        >Rock</button>
+    </div>
+    
+    <div class="choice__button">
+        <button
+            class="choice__button--paper"
+            (click)="makeChoice(Choice.PAPER)"
+            mat-raised-button
+            color="accent"
+        >Paper</button>
+    </div>
+
+    <div class="choice__button">
+        <button
+            class="choice__button--scissors"
+            (click)="makeChoice(Choice.SCISSORS)"
+            mat-raised-button
+            color="accent"
+        >Scissors</button>
+    </div>
+</div>
