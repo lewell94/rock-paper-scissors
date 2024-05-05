@@ -1,0 +1,24 @@
+<div class="names">
+    <div class="names__input">
+        <mat-form-field color="accent">
+            <mat-label>Player One Name</mat-label>
+            <input class="names__input--one" matInput [(ngModel)]="playerOneName">
+        </mat-form-field>
+    </div>
+
+    <div class="names__input">
+        <mat-form-field *ngIf="(numberOfPlayers$ | async) === NumberOfPlayers.TWO" color="accent">
+            <mat-label>Player Two Name</mat-label>
+            <input class="names__input--two" matInput [(ngModel)]="playerTwoName">
+        </mat-form-field>
+    </div>
+
+    <div class="names__submit">
+        <button
+            class="names__submit__btn"
+            (click)="submitNames()"
+            mat-raised-button
+            color="accent"
+        >Submit</button>
+    </div>
+</div>
